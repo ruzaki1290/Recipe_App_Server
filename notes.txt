@@ -1,3 +1,4 @@
 
 Checking whether the connection to the database was established or not:
 Type localhost/DIRECTORY_NAME(localhost/Recipe_App)
+- if the code is mistake-free and the connection was properly established to the database, then you should be able to see your directory files, or a blank page.
