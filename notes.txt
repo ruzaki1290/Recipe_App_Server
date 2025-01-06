@@ -1,0 +1,3 @@
+
+Checking whether the connection to the database was established or not:
+Type localhost/DIRECTORY_NAME(localhost/Recipe_App)
