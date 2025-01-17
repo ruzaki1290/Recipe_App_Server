@@ -31,7 +31,7 @@ if(empty($data['title']) || empty($data['author']) || empty($data['ingredients']
 // validate input fields(checking for null values)
 if(!isset($data['title']) || !isset($data['author']) || !isset($data['ingredients']) || !isset($data['instructions'])) {
    http_response_code(400);
-   die(json-encode(['message' => 'Error: Missin or empty reauired parameter']));
+   die(json-encode(['message' => 'Error: Missin or empty required parameter']));
 }
 
 // sanitize input
