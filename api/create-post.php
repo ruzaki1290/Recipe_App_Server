@@ -1,9 +1,7 @@
 <?php
 
-// Create post code will go here
-
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Origin: POST, OPTIONS");
+header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json");
 
@@ -21,17 +19,17 @@ $request_body = file_get_contents('php://input');
 // decode the JSON data into a PHP array
 $data = json_decode($request_body, true);
 
-// validate input fields with basic validation(checking if empty)
-if(empty($data['title']) || empty($data['author']) || empty($data['ingredients']) || empty($data['instructions'])) {
+// validate input fields with basic validation (checking if empty)
+if (empty($data['title']) || empty($data['author']) || empty($data['ingredients']) || empty($data['instructions'])) {
    http_response_code(400);
    echo json_encode(['message' => 'Error: Missing or empty required parameter']);
    exit();
 }
 
-// validate input fields(checking for null values)
-if(!isset($data['title']) || !isset($data['author']) || !isset($data['ingredients']) || !isset($data['instructions'])) {
+// validate input fields (checking for null values)
+if (!isset($data['title']) || !isset($data['author']) || !isset($data['ingredients']) || !isset($data['instructions'])) {
    http_response_code(400);
-   die(json-encode(['message' => 'Error: Missin or empty required parameter']));
+   die(json_encode(['message' => 'Error: Missing or empty required parameter']));
 }
 
 // sanitize input
@@ -50,14 +48,13 @@ if ($stmt->execute()) {
 
    // return success response    
    http_response_code(201);
-   die(json-encode(['message' => 'Post created successfully', 'id' => $id]));
+   die(json_encode(['message' => 'Post created successfully', 'id' => $id]));
 
 } else {
    // return error response with more detail if possible
    http_response_code(500);
-   echo json-encode(['message' => 'Error creating post: ' . $stmt->error]);
+   echo json_encode(['message' => 'Error creating post: ' . $stmt->error]);
 }
-
 
 $stmt->close();
 $conn->close();
