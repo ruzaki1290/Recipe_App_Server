@@ -13,7 +13,7 @@ This is the backend server for a Recipe app, built with PHP, and providing API e
 
 - `/create-post`:  Handles recipe creation.  Accepts POST requests with recipe data (title, author, ingredients, instructions).  Performs input validation and sanitization before inserting the new recipe into the database.
 - `/get-recipes`: Retrieves recipes from the database. (Implementation details to be added as they are developed).  Likely supports filtering or pagination.
-- _(Add other endpoints as they are implemented, e.g., /update-recipe, /delete-recipe, etc.)_
+- `/delete-post`: Handles recipe deletion. Accepts DELETE requests with the recipe ID. Validates the ID and removes the corresponding recipe from the database.
   
 ## Database
 
